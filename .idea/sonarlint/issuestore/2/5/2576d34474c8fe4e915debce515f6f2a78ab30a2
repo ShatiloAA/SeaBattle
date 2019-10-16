@@ -1,0 +1,43 @@
+
+‡squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„¦ğí
+Œsquid:S13194"uThe type of the "alphaCells" object should be an interface such as "List" rather than the implementation "ArrayList".(Ñû†¼
+‘squid:S1319J"uThe type of the "alphaCells" object should be an interface such as "List" rather than the implementation "ArrayList".(ÌÃ¦›ùÿÿÿÿ
+Vsquid:S4973§"9Use the "equals" method if value comparison was intended.(’û¤âøÿÿÿÿ
+Vsquid:S4973§"9Use the "equals" method if value comparison was intended.(’û¤âøÿÿÿÿ
+Qsquid:S4973¨"9Use the "equals" method if value comparison was intended.(Â£»®
+?squid:S1148~"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Esquid:S2140")Use "java.util.Random.nextInt()" instead.(­óØäüÿÿÿÿ
+@squid:S2140")Use "java.util.Random.nextInt()" instead.(ò¸Åö
+5squid:S2178Q"Correct this "&" to "&&".(ğ›Ì·úÿÿÿÿ
+5squid:S2178c"Correct this "|" to "||".(Şôÿıÿÿÿÿ
+0squid:S2178n"Correct this "&" to "&&".(ˆÎ³Á
+T
+squid:S106w"9Replace this use of System.out or System.err by a logger.(øºÑûúÿÿÿÿ
+T
+squid:S106}"9Replace this use of System.out or System.err by a logger.(¥Ã­øÿÿÿÿ
+P
+squid:S106Œ"9Replace this use of System.out or System.err by a logger.(¤ù°ª
+U
+squid:S106–"9Replace this use of System.out or System.err by a logger.(™•î¼øÿÿÿÿ
+O
+squid:S106—"9Replace this use of System.out or System.err by a logger.(ãı¬
+U
+squid:S106™"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(ı»¹øÿÿÿÿ
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(ò¦Àùÿÿÿÿ
+6squid:S2178§"Correct this "|" to "||".(’û¤âøÿÿÿÿ
+U
+squid:S106«"9Replace this use of System.out or System.err by a logger.(¬ÿçüÿÿÿÿ
+U
+squid:S106¬"9Replace this use of System.out or System.err by a logger.(‰êŒŸüÿÿÿÿ
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(®Ñİ†úÿÿÿÿ
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(„÷ş÷ÿÿÿÿÿ
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(±¯€¤
+gsquid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(¾ù¡úùÿÿÿÿ
+bsquid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(é©¡™
+gsquid:CommentedOutCodeLine="<This block of commented-out lines of code should be removed.(Ñş¯Úúÿÿÿÿ
+gsquid:CommentedOutCodeLineM"<This block of commented-out lines of code should be removed.(²¶ ıÿÿÿÿ
+gsquid:CommentedOutCodeLineT"<This block of commented-out lines of code should be removed.(°ş‚ñøÿÿÿÿ
+hsquid:CommentedOutCodeLine‰"<This block of commented-out lines of code should be removed.(Æ—Â¹øÿÿÿÿ

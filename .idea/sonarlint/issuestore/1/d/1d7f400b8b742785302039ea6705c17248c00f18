@@ -1,0 +1,23 @@
+
+t
+squid:S1350"YReduce the total number of break and continue statements in this loop to use at most one.(£ÇıŸøÿÿÿÿ
+‡squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¢®Í¬
+Psquid:S49733"9Use the "equals" method if value comparison was intended.(ÁÍ‡ª
+Wsquid:UselessImportCheck"3Remove this unused import 'java.io.BufferedReader'.(€é²Å
+Zsquid:UselessImportCheck"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉ
+Zsquid:S1155$">Use isEmpty() to check whether the collection is empty or not.(›´üìşÿÿÿÿ
+Lsquid:S2209%"5Change this instance-reference to a static reference.(ëµóù
+T
+squid:S106:"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ
+T
+squid:S106@"9Replace this use of System.out or System.err by a logger.(ÅÆæšùÿÿÿÿ
+T
+squid:S106A"9Replace this use of System.out or System.err by a logger.(‹Ë¿ıÿÿÿÿ
+T
+squid:S106B"9Replace this use of System.out or System.err by a logger.(šĞ’÷ùÿÿÿÿ
+O
+squid:S106I"9Replace this use of System.out or System.err by a logger.(„‘„
+T
+squid:S106J"9Replace this use of System.out or System.err by a logger.(ºÒüÿÿÿÿ
+O
+squid:S106K"9Replace this use of System.out or System.err by a logger.(¨Î•Ä
