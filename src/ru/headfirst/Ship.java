@@ -1,16 +1,16 @@
 package ru.headfirst;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class DotCom {
+public class Ship {
     private String name;
-    private ArrayList<String> adresses;
+    private List<String> adresses;
 
-    public ArrayList<String> getAdresses() {
+    List<String> getAdresses() {
         return adresses;
     }
 
-    public void setAdresses(ArrayList<String> addresses) {
+    void setAdresses(List<String> addresses) {
         this.adresses = addresses;
     }
 
@@ -19,11 +19,11 @@ public class DotCom {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public String checkYourself(String userInput) {
+    String checkYourself(String userInput) {
         String result = "Miss!";
         int index = adresses.indexOf(userInput);
         if (index >= 0) {

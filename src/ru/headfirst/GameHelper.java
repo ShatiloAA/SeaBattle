@@ -4,43 +4,47 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
-import static ru.headfirst.DotComBust.getSites;
+import static ru.headfirst.ShipBust.getShips;
 
 public class GameHelper {
 
-    private static char[] alphabet = {'a','b','c','d','e','f','g'};
-    private static int gridLength = 7;
-    private static int gridSize = gridLength*gridLength;
+    private char[] alphabet = {'a','b','c','d','e','f','g'};
+    private int gridLength = 7;
+    private int gridSize = gridLength*gridLength;
     //private int grid[] = new int[gridLength*gridLength];
 
-    public ArrayList<String> placeDotCom(int comSize) {
+    List<String> placeShip(int shipSize) {
         ArrayList<String> alphaCells = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
-       while (alphaCells.size() != 3) {
+       while (alphaCells.size() < shipSize) {
            sb.setLength(0);
-           int hrzntlOrVrtcl = (int) ((Math.random() * 10) % 2); //if %2 = 0 - vertical if it's possible, else horizontal.
-           //System.out.println("hrzntlOrVrtcl "+hrzntlOrVrtcl);
+           int typeOfLocation = (int) ((Math.random() * 10) % 2); //if %2 = 0 - vertical if it's possible, else horizontal.
+           System.out.println("typeOfLocation "+typeOfLocation);
            int startPlace = (int) (Math.random() * gridSize); // start point
+           //typeOfLocation = 1;
+           //startPlace = 42;
            String startPlaceInCoords = sb.append(getColumnChar(startPlace)).append(getLineNumber(startPlace)).toString();
+           System.out.println(startPlaceInCoords + " " + startPlace);
            if (startPlace < gridSize && !containsThatAddress(startPlaceInCoords)) {
-               if ((hrzntlOrVrtcl == 0 ) && ((startPlace + gridLength * (comSize-1))< gridSize)) {
-                   verticalArrangment(startPlace, comSize, alphaCells);
+               if ((typeOfLocation == 0 ) && ((startPlace + gridLength * (shipSize-1))< gridSize)) {
+                   verticalArrangment(startPlace, shipSize, alphaCells);
                    //break;
                }
                else {
-                   horizontalArrangement(startPlace,comSize, alphaCells);
-                   //if (alphaCells.size() == comSize) break;
+                   horizontalArrangement(startPlace,shipSize, alphaCells);
+                   //if (alphaCells.size() == shipSize) break;
                }
            }
        }
        return alphaCells;
     }
 
-    public boolean containsThatAddress(String address) {
+    boolean containsThatAddress(String address) {
         //checks if the coordinate is contained among the coordinates of already located ships
         boolean check = false;
-        for (DotCom x :  getSites()) {   //check for cross coordinates with hosted ships
+        for (Ship x :  getShips()) {   //check for cross coordinates with hosted ships
             if ((x.getAdresses() != null) && (x.getAdresses().contains(address))) {
                 check = true;
                 break;
@@ -49,7 +53,7 @@ public class GameHelper {
        return check;
     }
 
-    public void verticalArrangment(int startPlace, int comSize, ArrayList<String> alphaCells){
+    void verticalArrangment(int startPlace, int comSize, ArrayList<String> alphaCells){
 
         //if (((startPlace + (comSize-1)) % gridLength == 0) & ((startPlace + gridLength * (comSize-1))< gridSize)) {
 
@@ -71,28 +75,27 @@ public class GameHelper {
 
     }
 
-    public void horizontalArrangement(int startPlace, int comSize, ArrayList<String> alphaCells) {
+    void horizontalArrangement(int startPlace, int shipSize, ArrayList<String> alphaCells) {
         //horizontal
 
         //int place = startPlace;
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < comSize; i++) {
+        for (int i = 0; i < shipSize; i++) {
             sb.setLength(0);
-            if (((startPlace + i) % gridLength != 0) & (startPlace < gridSize - 1)) {
-                sb.append(getColumnChar(startPlace+i)).append(getLineNumber(startPlace+i));
-                if (containsThatAddress(sb.toString())) {
-                    //alphaCells.clear();
-                    sb.setLength(0);
+            int currentPlace = startPlace + i; // current place
+                sb.append(getColumnChar(currentPlace)).append(getLineNumber(currentPlace));
+                if (i > 0 && (containsThatAddress(sb.toString()) || (currentPlace % gridLength == 0) || (currentPlace > gridSize - 1))) {
+                    alphaCells.clear();
                     break;
                 }
                 else {
                     alphaCells.add(sb.toString());
                 }
-            }
+
         }
     }
 
-    public static char getColumnChar (int column) {
+    char getColumnChar (int column) {
         //return letter for this column
         int index = 0;
         for (int i = 0; i < gridLength; i++) {
@@ -103,7 +106,7 @@ public class GameHelper {
         return alphabet[index];
     }
 
-    public static int getLineNumber (int line) {
+    int getLineNumber (int line) {
         //return letter for this line
         int lineNumber = 0;
         for (int i = 0; i < gridLength; i++) {
@@ -114,7 +117,7 @@ public class GameHelper {
         return lineNumber;
     }
 
-    public static String getUserInput(String message) {
+    static String getUserInput(String message) {
         String userInput = null;
         System.out.println(message);
         try {
@@ -128,7 +131,7 @@ public class GameHelper {
         return userInput;
     }
 
-    public static int reverseCellCoordinates (String cell) {
+    int reverseCellCoordinates (String cell) {
         int indexGrid = 0;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < gridSize; i++) {
@@ -145,7 +148,7 @@ public class GameHelper {
         return indexGrid;
     }
 
-    public static void visualDisplay (String result, int cell) {
+    void visualDisplay (String result, int cell) {
         for (int i = 0; i < gridLength; i++) {
             if (i == 0)System.out.print("   " + alphabet[0] + "  ");
             else System.out.print("  " + alphabet[i] + "  ");
@@ -162,7 +165,10 @@ public class GameHelper {
         }
     }
 
-    public static void checkGrid (int cell, String result) {
+    void checkGrid (int cell, String result) {
+        for (int i = 0; i < gridSize; i++) {
+
+        }
         String x = "";
         if (result == "it's hit BOY!" | result == "Sunk!") x = "X";
         else if (result == "Miss!") x = "0";
