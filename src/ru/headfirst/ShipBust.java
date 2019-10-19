@@ -7,7 +7,11 @@ public class ShipBust {
 
     private static List<Ship> ships = new ArrayList<>();
     private int numOfGuesses = 0;
-    private GameHelper gameHelper = new GameHelper();
+    private GameHelper gameHelper;
+
+    public ShipBust(int grid) {
+        gameHelper = new GameHelper(grid);
+    }
 
     static List<Ship> getShips() {
         return ships;
@@ -28,7 +32,7 @@ public class ShipBust {
         }
     }
 
-    void startPlaying() {
+    private void startPlaying() {
         while (ships.size() !=0) {
             String userGuess = gameHelper.getUserInput("JUST DO IT!");
             checkUserGuess(userGuess);
@@ -38,7 +42,7 @@ public class ShipBust {
 
 
 
-    void checkUserGuess(String userGuess) {
+    private void checkUserGuess(String userGuess) {
         numOfGuesses++;
         String result = "Miss!";
         for (Ship x : ships) {
@@ -56,14 +60,15 @@ public class ShipBust {
 
 
 
-    void finishGame() {
+    private void finishGame() {
         System.out.println("~~~FINISH GAME!~~~");
         if (numOfGuesses <= 18) System.out.println("YES BOY! Only " + numOfGuesses + " moves!");
         else System.out.println("it's a shame bro! " + numOfGuesses + " moooves! :(");
     }
 
     public static void main(String[] args) {
-        ShipBust shipBust = new ShipBust();
+        ShipBust shipBust = new ShipBust(7);
+        shipBust.gameHelper.setGridLength(7);
         shipBust.setUpGame();
         for (Ship x : ships) {
             System.out.println(ships.size());
